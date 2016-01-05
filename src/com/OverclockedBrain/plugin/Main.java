@@ -8,21 +8,12 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin {
 
-	public void onEnable() 
-	{
-			
-	}
-	
-	
-	
-
 	public void onEnable() {
 		PluginDescriptionFile pdfFile = getDescription();
 		Logger logger = logger.getLogger("Minecraft");
 		
 		logger.info(pdfFile.getName() + " has been enabled (v. " + pdfFile.getVersion() + ")");
 	}
-
 	public void onDisable() {
 		PluginDescriptionFile pdfFile = getDescription();
 		Logger logger - logger.getLogger("Minecraft");
