@@ -10,6 +10,7 @@ import org.bukkit.*;
 
 public class Main extends JavaPlugin {
 
+	Player targetPlayer;
 	public void onEnable() {
 		PluginDescriptionFile pdfFile = getDescription();
 		Logger logger = logger.getLogger("Minecraft");
@@ -26,17 +27,17 @@ public class Main extends JavaPlugin {
 	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String{} args){
 		Player player = (Player) sender;
 		if(commandLabel.equalsIgnoreCase("ttp")){
-			if(!(player.isOp())){
+			if(!player.isOp()){
 				player.sendMessage(ChatColor.AQUA + "Permissions>" + ChatColor.GRAY + "You need the rank " + ChatColor.RED + ChatColor.BOLD + "ADMIN" + ChatColor.GRAY + " to use that command!");
 			}else if(player.isOp()){
 				if(args.length == 0){
 					player.sendMessage(ChatColor.AQUA + "Staff Teleport>" + ChatColor.GRAY + "You need to specify a player to teleport to!");
 				}else if(args.length == 1){
-					Player targetPlayer = player.getServer().getPlayer(args[0]);
+					targetPlayer = player.getServer().getPlayer(args[0]);
 					Location tagetPlayerlocation = targetPlayer.getLocation();
 					player.teleport(targetPlayerLocation);
 				}else if(args.length == 2){
-					Player targetPlayer = player.getServer().getPlayer(args[0]);
+					targetPlayer = player.getServer().getPlayer(args[0]);
 					Player targetPlayer1 = player.getServer().getPlayer(args[1]);
 					Location targetPlayer1Location = targetPlayer1.getLocation();
 					targetPlayer.teleport(targetPlayer1Location);
